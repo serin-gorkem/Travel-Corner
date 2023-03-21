@@ -80,12 +80,16 @@ main {
     background: rgba(49, 49, 49, 0.558);
 }
 .expand {
-    transition: all 1s ease-in-out;
-    width: 100%;
+    @include screen-type(pc) {
+        transition: all 1s ease-in-out;
+        width: 100%;
+    }
 }
 .shrink {
-    transition: all 1s ease-in-out;
-    width: 25%;
+    @include screen-type(pc) {
+        transition: all 1s ease-in-out;
+        width: 25%;
+    }
 }
 
 .menu {
