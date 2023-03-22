@@ -115,7 +115,7 @@ span.move-up {
     h1 {
         font-family: "Montserrat", sans-serif;
         text-shadow: 2px 2px map-get($map: $colors, $key: main-color);
-        margin: 8% 0;
+        margin: 2% 0;
         @include screen-type(phone-landscape) {
             margin-bottom: 2%;
         }

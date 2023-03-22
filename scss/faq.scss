@@ -1,10 +1,10 @@
 @import "_mixin.scss";
 @import "_variables.scss";
 main {
-    height: 100vh;
+    height: 140vh;
     margin: 0;
-    @include screen-type(phone-landscape) {
-        height: 180vh;
+    @include screen-type(tablet) {
+        height: 100vh;
     }
 }
 .navbar {
@@ -21,12 +21,15 @@ main {
     @include screen-type(pc) {
         @include flex-assign(row, center, center);
     }
+    @include screen-type(phone-landscape) {
+        @include flex-assign(row, center, center);
+    }
 }
 .page {
     height: 100vh;
     width: 100%;
     @include screen-type(phone-landscape) {
-        height: 180vh;
+        height: 100%;
     }
 }
 
@@ -48,6 +51,7 @@ main {
     }
     .menu {
         background-color: white;
+        list-style: none;
         .btn {
             color: map-get($map: $colors, $key: faq-main-color);
             font-weight: bold;
@@ -71,6 +75,9 @@ main {
         color: white;
         font-family: "PT Sans", sans-serif;
         margin-bottom: 5%;
+    }
+    @include screen-type(phone-landscape) {
+        height: 100vh;
     }
 }
 .info-panel {

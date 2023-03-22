@@ -36,7 +36,7 @@
         transition: all 0.4s ease;
       }
       @include screen-type(phone-landscape) {
-        height: 100%;
+        height: 200%;
       }
       width: 100%;
       height: 100%;
@@ -62,7 +62,6 @@
         color: map-get($map: $colors, $key: text-color);
       }
       @include screen-type(phone-landscape) {
-        color: map-get($map: $colors, $key: text-color);
         opacity: 1;
       }
       align-self: center;
