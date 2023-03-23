@@ -14,6 +14,11 @@ main {
     height: 100vh;
   }
 }
+@media (orientation: landscape) and (max-height: 40rem) {
+  main {
+    height: 180vh;
+  }
+}
 
 .navbar {
   background-color: #432525;
@@ -111,7 +116,6 @@ main {
 }
 .faq-page .menu {
   background-color: white;
-  list-style: none;
 }
 .faq-page .menu .btn {
   color: #432525;
@@ -150,7 +154,7 @@ main {
 }
 @media (orientation: landscape) and (max-height: 40rem) {
   .panel {
-    height: 100vh;
+    height: 100%;
   }
 }
 
@@ -187,6 +191,7 @@ main {
   overflow: hidden;
   -webkit-box-shadow: 0 0 10px #432525;
           box-shadow: 0 0 10px #432525;
+  list-style: none;
 }
 .menu .submenu {
   background-color: #FEFEFE;
