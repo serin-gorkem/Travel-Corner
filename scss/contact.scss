@@ -1,0 +1,152 @@
+@import "_mixin.scss";
+@import "_variables.scss";
+main {
+    height: 200vh;
+    margin: 0;
+    @include grid-assign(100%, 40% 20% 40%);
+    @include screen-type(pc) {
+        height: 300vh;
+    }
+    @include screen-type(phone-landscape) {
+        height: 450vh;
+    }
+    grid-template-areas: "form" "social" "map";
+    background-color: map-get($map: $colors, $key: creme-color);
+}
+.navbar {
+    background-color: map-get($map: $colors, $key: contact-main-color);
+}
+.form {
+    @include screen-type(pc) {
+        padding-top: 5%;
+    }
+    grid-area: form;
+    @include flex-assign(column, center, center);
+    color: map-get($map: $colors, $key: text-color);
+    .form__container {
+        background-color: map-get($map: $colors, $key: contact-main-color);
+        margin: 4%;
+        padding: 2%;
+        box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.5);
+        border-radius: 30px;
+        @include flex-assign(column, center, flex-start);
+        h2 {
+            font-size: 1.3rem;
+            padding-left: 2%;
+        }
+        .part {
+            @include flex-assign(row, space-between, center);
+            width: 90%;
+            margin: 4%;
+            &:last-of-type {
+                justify-content: flex-end;
+                align-self: flex-end;
+            }
+            label {
+                width: 40%;
+                text-align: left;
+            }
+            input {
+                width: 60%;
+                border-radius: 30px;
+                border: none;
+                padding: 2%;
+                font-family: "Montserrat", sans-serif;
+
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+            textarea {
+                font-family: "Montserrat", sans-serif;
+                border-radius: 10px;
+                @include screen-type(pc) {
+                    width: 17vw;
+                    height: 20vh;
+                }
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+
+            .btn {
+                padding: 2% 8%;
+                border-radius: 20px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                background-color: map-get($map: $colors, $key: contact-main-color);
+                box-shadow: 4px 4px 4px 1px black;
+                color: map-get($map: $colors, $key: text-color);
+                transition: all 0.4s ease-in-out;
+                &:hover {
+                    background-color: map-get($map: $colors, $key: second-text-color);
+                    padding: 3% 10%;
+                }
+            }
+        }
+        .message {
+            align-items: flex-start;
+        }
+    }
+}
+.social {
+    grid-area: social;
+    position: relative;
+    .image {
+        position: absolute;
+        background-image: url("https://images.pexels.com/photos/33999/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        filter: blur(2px);
+    }
+    .accounts-container {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        @include grid-assign(repeat(2, 50%), repeat(2, 50%));
+        align-items: center;
+        .area {
+            height: fit-content;
+            @include grid-assign(10% 90%, 100%);
+            column-gap: 10%;
+            @include screen-type(pc) {
+                column-gap: 0%;
+            }
+            padding: 10%;
+            justify-items: center;
+            align-items: center;
+            p {
+                font-size: 0.6rem;
+                @include screen-type(pc) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+.map {
+    grid-area: map;
+    background-color: orange;
+    @include flex-assign(column, center, center);
+    .location {
+        width: 80vw;
+        height: 50vh;
+        @include screen-type(pc) {
+            height: 80vh;
+        }
+    }
+    @include screen-type(pc) {
+        font-size: 1.6rem;
+    }
+    h2 {
+        margin-top: 5%;
+    }
+}
+
+.page-footer {
+    background-color: map-get($map: $colors, $key: contact-main-color);
+}

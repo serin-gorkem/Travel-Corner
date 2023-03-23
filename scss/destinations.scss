@@ -1,0 +1,109 @@
+@import "_mixin.scss";
+@import "_variables.scss";
+
+.navbar {
+  background-color: map-get($map: $colors, $key: destinations-main-color);
+  position: relative;
+  margin-bottom: 7%;
+}
+
+.container {
+  @include flex-assign(column, center, center);
+  .element {
+    max-height: 25vh;
+    height: 25vh;
+    margin-bottom: 15%;
+    padding: 0 2%;
+    transform: scale(0);
+    transition: all 0.4s ease;
+    @include screen-type(tablet) {
+      margin: 15% 0;
+    }
+    @include screen-type(pc) {
+      margin: 2.5%;
+      max-height: 100vh;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+
+    @include flex-assign(row, center, center);
+    .image {
+      @include screen-type(pc) {
+        position: absolute;
+        width: 80%;
+        height: 100%;
+        transition: all 0.4s ease;
+      }
+      @include screen-type(phone-landscape) {
+        height: 200%;
+      }
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+    }
+    .image.effect {
+      filter: blur(5px);
+    }
+    .text {
+      @include screen-type(pc) {
+        position: absolute;
+        top: 50%;
+        width: 80%;
+        z-index: 5;
+        opacity: 0;
+        @include screen-type(tablet) {
+          opacity: 1;
+        }
+        transition: all 0.4s ease;
+        font-size: 1rem;
+        color: map-get($map: $colors, $key: text-color);
+      }
+      @include screen-type(phone-landscape) {
+        opacity: 1;
+      }
+      align-self: center;
+      padding: 0 2%;
+      width: 100%;
+      height: fit-content;
+      font-size: 0.8rem;
+      text-align: left;
+      margin-top: 2%;
+      a {
+        text-decoration: none;
+        color: map-get($map: $colors, $key: link-color);
+        &:hover {
+          color: black;
+        }
+      }
+    }
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 1% 5%;
+      @include screen-type(tablet) {
+        box-shadow: 6px 6px 10px 2px black;
+        background: rgba(255, 255, 255, 0.8);
+      }
+      @include screen-type(pc) {
+        box-shadow: 6px 6px 10px 2px black;
+        background: rgba(255, 255, 255, 0.8);
+      }
+      &:hover {
+        background: rgba(255, 255, 255, 1);
+      }
+    }
+    .effect {
+      opacity: 1;
+    }
+  }
+  .element.show {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.page-footer {
+  background-color: map-get($map: $colors, $key: destinations-main-color);
+}
