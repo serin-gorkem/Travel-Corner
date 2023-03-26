@@ -49,6 +49,7 @@
     .text {
       @include screen-type(pc) {
         position: absolute;
+        height: fit-content;
         top: 50%;
         width: 80%;
         z-index: 5;
