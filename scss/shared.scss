@@ -1,0 +1,209 @@
+@import "_mixin.scss";
+@import "_variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    animation: pageIn 2s forwards alternate;
+}
+p {
+    font-family: "Inter", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+.navbar {
+    position: fixed;
+    width: 100%;
+    height: 42px;
+    top: 12px;
+    background-color: map-get($map: $colors, $key: main-color);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    display: grid;
+    grid-template-columns: 12% 25% 63%;
+    grid-template-rows: 100%;
+    align-items: center;
+    transition: all 0.4s;
+    @include screen-type(pc) {
+        grid-template-columns: 8% 27% 65%;
+        height: 85px;
+    }
+
+    z-index: 100;
+}
+.navbar.fixed-position {
+    top: 0;
+    height: 35px;
+    @include screen-type(pc) {
+        height: 50px;
+    }
+}
+.navbar-text {
+    font-size: 0.8rem;
+    @include screen-type(pc) {
+        width: fit-content;
+    }
+    color: map-get($map: $colors, $key: text-color);
+    .title {
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        @include screen-type(pc) {
+            font-size: 1.2rem;
+            text-align: left;
+        }
+    }
+    .number {
+        margin: 0;
+        padding: 0;
+        font-size: 0.5rem;
+        color: black;
+        font-weight: bold;
+        @include screen-type(pc) {
+            font-size: 0.6rem;
+            text-align: right;
+        }
+    }
+}
+.logo {
+    background-image: url("/images/Logo.png");
+    background-size: 140%;
+    background-position: 50%;
+    height: 100%;
+    @include screen-type(pc) {
+        background-size: 65%;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+}
+.navbar--list {
+    padding: 12px;
+    font-size: 8px;
+    @include screen-type(pc) {
+        font-size: 1rem;
+        padding: 24px;
+    }
+    list-style: none;
+    font-weight: bold;
+    @include flex-assign(row, flex-end, center);
+}
+.navbar__item {
+    @include screen-type(pc) {
+        padding: 2rem;
+    }
+    padding: 0.2rem;
+    a {
+        text-decoration: none;
+        color: map-get($map: $colors, $key: text-color);
+        &:hover
+        {
+            color: map-get($map: $colors, $key: link-color);
+        }
+    }
+    
+}
+.page-footer {
+    grid-area: page-footer;
+    background-color: #88cafe;
+    @include flex-assign(row, space-between, center);
+    width: 100vw;
+    height: 8vh;
+    @include screen-type(pc) {
+        height: 10vh;
+    }
+    @include screen-type(phone-landscape) {
+        height: 20vh;
+    }
+    .page-brand {
+        @include flex-assign(row, center, center);
+        height: 100%;
+        width: 55%;
+        text-align: center;
+        .footer-logo {
+            background-size: cover;
+            background-position: 50%;
+            height: 100%;
+            max-width: 20vw;
+            width: 20vw;
+            @include screen-type(pc) {
+                max-width: 10vw;
+                width: 10vw;
+            }
+        }
+        .footer-info {
+            color: map-get($map: $colors, $key: text-color);
+            p {
+                margin: 0;
+                &:last-of-type {
+                    margin-bottom: 2%;
+                    @include screen-type(pc) {
+                        margin-bottom: 0%;
+                    }
+                }
+                text-align: left;
+                font-size: 0.4rem;
+                @include screen-type(pc) {
+                    font-size: 0.6rem;
+                }
+            }
+            h2 {
+                text-align: left;
+                margin: 0;
+                font-size: 1rem;
+            }
+            width: 60vw;
+            max-width: 60vw;
+            font-size: 0.5rem;
+        }
+    }
+    .footer-specs {
+        @include flex-assign(row, center, center);
+        height: 100%;
+        width: 45%;
+        padding: 2%;
+        @include screen-type(pc) {
+            padding: 1% 0;
+        }
+        color: map-get($map: $colors, $key: text-color);
+        .specs {
+            @include flex-assign(column, space-between, center);
+            margin-right: 5%;
+            height: 100%;
+            width: 100%;
+            .fa-solid {
+                width: 100%;
+            }
+            .info {
+                height: 50%;
+                width: 100%;
+                p {
+                    font-size: 0.5rem;
+                    @include screen-type(pc) {
+                        font-size: 0.8rem;
+                    }
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+@keyframes pageIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
