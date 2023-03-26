@@ -97,20 +97,6 @@ function carousel(size,first,last,rate)
       })
     }
 }
-let pageIn = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      entry.target.classList.toggle("play-anim", entry.isIntersecting);
-    });
-  },
-  {
-    threshold: 1,
-  }
-);
-var reviewsPage = document.querySelectorAll("#reviews-pc");
-reviewsPage.forEach((element) => {
-  pageIn.observe(element);
-});
 
 
 let index = 0;
