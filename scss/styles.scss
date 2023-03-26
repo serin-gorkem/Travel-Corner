@@ -678,8 +678,7 @@ span.move-up {
     grid-area: reviews;
     min-height: 100vh;
     padding-top: 5vh;
-
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(
         to bottom,
         map-get($map: $colors, $key: main-color) 50%,
@@ -899,6 +898,7 @@ span.move-up {
             padding: 2%;
             height: 100%;
             width: 100%;
+            color: blacks;
             .info {
                 @include screen-type(pc) {
                     left: 55vw;
